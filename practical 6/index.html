@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    form {
+      background-color: #fff;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <form name="myForm" onsubmit="return validateForm()" method="post">
+    <label>
+      Name:
+      <input type="text" name="name">
+    </label>
+
+    <label>
+      Email:
+      <input type="text" name="email">
+    </label>
+
+    <label>
+      Age:
+      <input type="text" name="age">
+    </label>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.forms["myForm"]["name"].value;
+      const email = document.forms["myForm"]["email"].value;
+      const age = document.forms["myForm"]["age"].value;
+
+      if (name === "") {
+        alert("Name must be filled out");
+        return false;
+      }
+      if (email === "") {
+        alert("Email must be filled out");
+        return false;
+      }
+      if (age === "" || isNaN(age) || age <= 0) {
+        alert("Please enter a valid age");
+        return false;
+      }
+      return true;
+    }
+
+  </script>
+
+</body>
+</html>

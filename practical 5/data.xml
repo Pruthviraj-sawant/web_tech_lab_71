@@ -1,0 +1,38 @@
+<?xml-stylesheet type="text/xsl" href="data.xslt"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="data.xsd">
+    <student>
+        <id>71</id>
+        <name>pruthvi sawnt</name>
+        <age>20</age>
+        <department>Computer Science/mechanical</department>
+        <grade>A</grade>
+    </student>
+    <student>
+        <id>68</id>
+        <name>yash ainapure</name>
+        <age>21</age>
+        <department>Information Technology</department>
+        <grade>B</grade>
+    </student>
+    <student>
+        <id>69</id>
+        <name>radhey patil</name>
+        <age>22</age>
+        <department>cse</department>
+        <grade>A</grade>
+    </student>
+    <student>
+        <id>49</id>
+        <name>parth sawnt</name>
+        <age>20</age>
+        <department>aiml</department>
+        <grade>A+</grade>
+    </student>
+    <student>
+        <id>5</id>
+        <name>Sahil</name>
+        <age>23</age>
+        <department>Civil</department>
+        <grade>D</grade>
+    </student>
+</students>

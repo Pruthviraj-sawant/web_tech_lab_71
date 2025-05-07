@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+    <h1 class="text-2xl font-bold text-center mb-6">Basic Calculator</h1>
+
+    <div class="mb-4">
+      <input id="num1" type="number" placeholder="Enter first number"
+        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+    <div class="mb-4">
+      <input id="num2" type="number" placeholder="Enter second number"
+        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+
+    <div class="flex justify-between mb-4">
+      <button onclick="calculate('+')"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">+</button>
+      <button onclick="calculate('-')"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">-</button>
+      <button onclick="calculate('*')"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">*</button>
+      <button onclick="calculate('/')"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">÷</button>
+    </div>
+
+    <div>
+      <p id="result" class="text-center text-lg font-semibold text-gray-700"></p>
+    </div>
+
+    <button onclick="clearFields()"
+      class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 w-full mt-4">Clear</button>
+  </div>
+
+  <script>
+    function calculate(operator) {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const resultEl = document.getElementById('result');
+      let result;
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result = "Please enter valid numbers.";
+        resultEl.classList.add("text-red-500");
+      } else {
+        resultEl.classList.remove("text-red-500");
+        switch (operator) {
+          case '+':
+            result = num1 + num2;
+            break;
+          case '-':
+            result = num1 - num2;
+            break;
+          case '*':
+            result = num1 * num2;
+            break;
+          case '/':
+            result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero.";
+            if (num2 === 0) resultEl.classList.add("text-red-500");
+            break;
+          default:
+            result = "Invalid operation.";
+        }
+      }
+
+      resultEl.textContent = `Result: ${result}`;
+    }
+
+    function clearFields() {
+      document.getElementById('num1').value = '';
+      document.getElementById('num2').value = '';
+      const resultEl = document.getElementById('result');
+      resultEl.textContent = '';
+      resultEl.classList.remove("text-red-500");
+    }
+  </script>
+</body>
+
+</html>
